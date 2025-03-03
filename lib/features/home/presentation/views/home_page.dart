@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sports/core/utils/colors.dart';
 import 'package:sports/core/utils/constats.dart';
-import 'package:sports/features/home/presentation/views/widgets/custom_drop_down.dart';
-import 'package:sports/features/home/presentation/views/widgets/custom_text_field.dart';
+import 'package:sports/features/home/presentation/views/form_body.dart';
 import 'package:sports/features/home/presentation/views/widgets/home_tab_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,6 +31,11 @@ class _MyHomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.primaryColors,
+        onPressed: () {},
+        child: Icon(Icons.check),
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: KHorizontalPadding),
@@ -54,30 +59,6 @@ class _MyHomePageState extends State<HomePage>
           ),
         ),
       ),
-    );
-  }
-}
-
-class FormBody extends StatelessWidget {
-  const FormBody({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        CustomTextField(label: "Label", hint: "Hint Text..."),
-        CustomTextField(label: "Label", hint: "Hint Text..."),
-        CustomDropdown(
-          label: "label",
-          hint: "Hint Text...",
-          onChanged: (value) {},
-          items: ["Item1", "Item2", "Item3", "Item4"],
-        ),
-        CustomTextField(label: "Label", hint: "Hint Text..."),
-        CustomTextField(label: "Label", hint: "Hint Text..."),
-      ],
     );
   }
 }
