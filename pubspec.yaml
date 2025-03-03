@@ -1,0 +1,62 @@
+name: sports
+description: "Sports Form."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  awesome_dialog: ^3.2.1
+  bloc_concurrency: ^0.2.5
+  carousel_slider: ^5.0.0
+  cupertino_icons: ^1.0.8
+  dio: ^5.7.0
+  equatable: ^2.0.5
+  firebase_core: ^3.10.0
+  firebase_messaging: ^15.2.0
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.5
+  flutter_local_notifications: ^18.0.1
+  flutter_localizations:
+    sdk: flutter
+  flutter_slider_drawer: ^3.0.2
+  flutter_svg_icons: ^0.0.1+4
+  get_it: ^8.0.3
+  motion_tab_bar: ^2.0.4
+  pretty_dio_logger: ^1.4.0
+  shared_preferences: ^2.3.5
+
+dev_dependencies:
+  flutter_launcher_icons: "^0.14.1"
+  flutter_test:
+    sdk: flutter
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/appIcon.png"
+  min_sdk_android: 21
+  adaptive_icon_foreground: "assets/icons/appIcon.png"
+  adaptive_icon_background: "#FFFFFF"
+  
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/lang/
+    - assets/images/
+    - assets/icons/
+
+  fonts:
+    - family: cocon-next-arabic
+      fonts:
+        - asset: assets/fonts/cocon-next-arabic.ttf
+    - family: Hacen Beirut
+      fonts:
+        - asset: assets/fonts/Hacen Beirut.ttf
