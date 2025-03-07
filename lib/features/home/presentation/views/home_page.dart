@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sports/core/utils/colors.dart';
 import 'package:sports/core/utils/constats.dart';
+import 'package:sports/features/home/presentation/views-model/get_form/get_form_cubit.dart';
 import 'package:sports/features/home/presentation/views/form_body.dart';
 import 'package:sports/features/home/presentation/views/widgets/home_tab_bar.dart';
 
@@ -46,12 +48,24 @@ class _MyHomePageState extends State<HomePage>
                 child: TabBarView(
                   controller: _tabController,
                   children: [
-                    FormBody(),
-                    FormBody(),
-                    FormBody(),
-                    FormBody(),
-                    FormBody(),
-                    FormBody(),
+                    for (int i = 0; i < 6; i++)
+                      BlocBuilder<GetFormCubit, GetFormState>(
+                        builder: (context, state) {
+                          if (state is GetFormSuccess)
+                            return FormBody(
+                              fields: state.fields,
+                            );
+                          else if (state is GetFormFailuer)
+                            return Center(
+                              child: Text(
+                                state.errorMessage,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            );
+                          else
+                            return CircularProgressIndicator();
+                        },
+                      )
                   ],
                 ),
               ),

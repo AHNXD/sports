@@ -2,17 +2,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:sports/core/Api_services/api_services.dart';
 // import 'package:mk_academy/core/notification_services/notification.dart';
 import 'package:sports/core/utils/app_localizations.dart';
 import 'package:sports/core/locale/locale_cubit.dart';
 import 'package:sports/core/utils/cache_helper.dart';
 import 'package:sports/core/utils/colors.dart';
 import 'package:sports/core/utils/routs.dart';
+import 'package:sports/core/utils/services_locater.dart';
 import 'package:sports/core/utils/styles.dart';
+import 'package:sports/features/home/data/repos/home_rep_impl.dart';
+import 'package:sports/features/home/data/repos/home_repo.dart';
+import 'package:sports/features/home/presentation/views-model/get_form/get_form_cubit.dart';
 import 'package:sports/features/home/presentation/views/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupLocatorServices();
   // await Firebase.initializeApp();
   await CacheHelper.init();
   // await FirebaseApi().initNotifications();
@@ -27,6 +33,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => LocaleCubit()..getSaveLanguage()),
+        BlocProvider(
+            create: (context) => GetFormCubit(
+                  getit.get<HomeRepo>(),
+                )..fetchForm()),
       ],
       child: BlocBuilder<LocaleCubit, ChangeLocaleState>(
         builder: (context, state) {
