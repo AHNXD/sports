@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
             create: (context) => GetFormCubit(
                   getit.get<HomeRepo>(),
-                )..fetchForm()),
+                )..fetchForm("255")),
       ],
       child: BlocBuilder<LocaleCubit, ChangeLocaleState>(
         builder: (context, state) {

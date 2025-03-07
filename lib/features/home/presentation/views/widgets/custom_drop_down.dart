@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sports/core/utils/colors.dart';
+import 'package:sports/features/home/data/models/dropDown_items.dart';
 
 class CustomDropdown extends StatefulWidget {
-  final List<String> items;
+  final List<DropDownItems> items;
   final String label;
   final String hint;
   final ValueChanged<String?>? onChanged;
@@ -42,10 +43,10 @@ class _CustomDropdownState extends State<CustomDropdown> {
           ),
           style: TextStyle(fontSize: 18.0, color: AppColors.textButtonColors),
           value: selectedValue,
-          items: widget.items.map((String item) {
+          items: widget.items.map((DropDownItems item) {
             return DropdownMenuItem<String>(
-              value: item,
-              child: Text(item, style: TextStyle(color: Colors.white)),
+              value: item.id.toString(),
+              child: Text(item.name!, style: TextStyle(color: Colors.white)),
             );
           }).toList(),
           onChanged: (value) {

@@ -13,8 +13,9 @@ final class GetFormLoading extends GetFormState {}
 
 final class GetFormSuccess extends GetFormState {
   final List<Fields> fields;
+  final List<List<DropDownItems>> dropDownLists;
 
-  const GetFormSuccess(this.fields);
+  const GetFormSuccess(this.fields, this.dropDownLists);
 }
 
 final class GetFormFailuer extends GetFormState {
